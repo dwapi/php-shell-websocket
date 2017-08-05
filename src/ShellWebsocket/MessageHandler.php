@@ -1,5 +1,5 @@
 <?php
-namespace ShellWebsocket;
+namespace Wapi\Daemon\ShellWebsocket;
 
 use React\ChildProcess\Process;
 use React\Promise\Deferred;

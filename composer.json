@@ -16,6 +16,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
-        "psr-4": {"ShellWebsocket\\": "src/ShellWebsocket"}
+        "psr-4": {"Wapi\\Daemon\\ShellWebsocket\\": "src/ShellWebsocket"}
     }
 }

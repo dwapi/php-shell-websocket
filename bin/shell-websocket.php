@@ -12,6 +12,6 @@ $params = \Wapi\Daemon::parseArgs($argv);
 $params['host'] = '127.0.0.1';
 $params['port'] = 33556;
 
-$daemon = new \Wapi\Daemon($params, '\ShellWebsocket\App');
+$daemon = new \Wapi\Daemon($params, '\Wapi\Daemon\ShellWebsocket\App');
 
 $daemon->run();

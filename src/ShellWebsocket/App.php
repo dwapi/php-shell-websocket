@@ -1,11 +1,11 @@
 <?php
-namespace ShellWebsocket;
+namespace Wapi\Daemon\ShellWebsocket;
 
 class App extends \Wapi\App {
   
   public function getMessageHandlers() {
     return [
-      '\ShellWebsocket\MessageHandler'
+      '\Wapi\Daemon\ShellWebsocket\MessageHandler'
     ];
   }
   
