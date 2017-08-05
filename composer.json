@@ -1,6 +1,7 @@
 {
     "name": "nyariv/shell-websocket",
     "description": "A php daemon that runs shell commands channeled through a websocket. Based on ReactPHP and Ratchet.",
+    "keywords": ["ReactPHP", "Ratchet", "websocket", "shell"],
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +11,7 @@
     ],
     "require": {
         "nyariv/wapi": "dev-master",
-        "clue/shell-react": "^0.2.0"
+        "react/child-process": "^0.4.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

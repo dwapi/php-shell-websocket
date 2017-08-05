@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "791fd6f6e3fed3723f7073b76a33ebc6",
-    "content-hash": "63d418ce089ed2920343478c0c8fea20",
+    "hash": "233f2cea7f6fb41911d7bfa092f6301d",
+    "content-hash": "e254e466486d7136b43dcdb0c2eb7241",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -62,53 +62,6 @@
                 "websocket"
             ],
             "time": "2017-04-19 21:05:46"
-        },
-        {
-            "name": "clue/shell-react",
-            "version": "v0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/php-shell-react.git",
-                "reference": "02cd3c9627176afc429d0c5eda9afaee5fbeb9de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/php-shell-react/zipball/02cd3c9627176afc429d0c5eda9afaee5fbeb9de",
-                "reference": "02cd3c9627176afc429d0c5eda9afaee5fbeb9de",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "react/child-process": "~0.3.0|~0.4.0",
-                "react/event-loop": "~0.3.0|~0.4.0",
-                "react/promise": "~1.0|~2.0",
-                "react/stream": "~0.3.0|~0.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Clue\\React\\Shell\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@lueck.tv"
-                }
-            ],
-            "description": "Run async commands within any interactive shell command",
-            "homepage": "https://github.com/clue/php-shell-react",
-            "keywords": [
-                "async",
-                "interactive",
-                "reactphp",
-                "sheller"
-            ],
-            "time": "2015-06-17 17:12:41"
         },
         {
             "name": "evenement/evenement",
@@ -229,12 +182,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwapi/php-wapi.git",
-                "reference": "475227cc8a594e01a099c12151a7afac9ac51abe"
+                "reference": "247da1506e922a37012658f9cd59ffcfb66ac484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwapi/php-wapi/zipball/475227cc8a594e01a099c12151a7afac9ac51abe",
-                "reference": "475227cc8a594e01a099c12151a7afac9ac51abe",
+                "url": "https://api.github.com/repos/dwapi/php-wapi/zipball/247da1506e922a37012658f9cd59ffcfb66ac484",
+                "reference": "247da1506e922a37012658f9cd59ffcfb66ac484",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +210,7 @@
                 }
             ],
             "description": "A PHP daemon factory for handling websocket communication based on ReactPHP and Ratchet.",
-            "time": "2017-08-05 01:03:40"
+            "time": "2017-08-05 11:44:50"
         },
         {
             "name": "psr/http-message",
@@ -661,16 +614,16 @@
         },
         {
             "name": "react/stream",
-            "version": "v0.4.6",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/stream.git",
-                "reference": "44dc7f51ea48624110136b535b9ba44fd7d0c1ee"
+                "reference": "6ccc4bd601e362aebfe5f449411a08b5f38b229d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/44dc7f51ea48624110136b535b9ba44fd7d0c1ee",
-                "reference": "44dc7f51ea48624110136b535b9ba44fd7d0c1ee",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/6ccc4bd601e362aebfe5f449411a08b5f38b229d",
+                "reference": "6ccc4bd601e362aebfe5f449411a08b5f38b229d",
                 "shasum": ""
             },
             "require": {
@@ -679,6 +632,7 @@
             },
             "require-dev": {
                 "clue/stream-filter": "~1.2",
+                "phpunit/phpunit": "^5.0 || ^4.8.10",
                 "react/event-loop": "^0.4|^0.3",
                 "react/promise": "^2.0|^1.0"
             },
@@ -701,7 +655,7 @@
                 "pipe",
                 "stream"
             ],
-            "time": "2017-01-25 14:44:14"
+            "time": "2017-03-08 08:17:17"
         },
         {
             "name": "symfony/http-foundation",

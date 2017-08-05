@@ -1,7 +1,8 @@
 <?php
 namespace ShellWebsocket;
 
-use Clue\React\Shell\ProcessLauncher;
+use React\ChildProcess\Process;
+use React\Promise\Deferred;
 use Wapi\Exception\AccessDenied;
 use Wapi\Exception\ClockMismatch;
 use Wapi\Message;
@@ -36,11 +37,31 @@ class MessageHandler extends MessageHandlerBase {
   }
   
   public function exec($command) {
-    $launcher = new ProcessLauncher(ServiceManager::service('loop'));
-    $shell = $launcher->createDeferredShell('bash');
-    return $shell->execute($command)->always(function () use ($shell) {
-      $shell->end();
+    $output = '';
+    $error = '';
+    $deferred = new Deferred();
+    
+    $loop = ServiceManager::service('loop');
+    $process = new Process($command);
+    $process->start($loop);
+  
+    $process->stdout->on('data', function ($chunk) use(&$output) {
+      $output .= $chunk;
     });
+    
+    $process->stderr->on('data', function ($chunk) use(&$error)  {
+      $error .= $chunk;
+    });
+  
+    $process->on('exit', function($exitCode) use ($output, $error, $deferred) {
+      if($exitCode) {
+        $deferred->reject($error);
+      } else {
+        $deferred->resolve($output);
+      }
+    });
+    
+    return $deferred->promise();
   }
   
 }
