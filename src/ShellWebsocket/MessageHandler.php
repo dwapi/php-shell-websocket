@@ -5,6 +5,7 @@ use React\ChildProcess\Process;
 use React\Promise\Deferred;
 use Wapi\Exception\AccessDenied;
 use Wapi\Exception\ClockMismatch;
+use Wapi\Exception\WapiException;
 use Wapi\Message;
 use Wapi\MessageHandler\MessageHandlerBase;
 use Wapi\ServiceManager;
@@ -37,6 +38,7 @@ class MessageHandler extends MessageHandlerBase {
   }
   
   public function exec($command) {
+    echo $command;
     $output = '';
     $error = '';
     $deferred = new Deferred();
@@ -55,7 +57,7 @@ class MessageHandler extends MessageHandlerBase {
   
     $process->on('exit', function($exitCode) use ($output, $error, $deferred) {
       if($exitCode) {
-        $deferred->reject($error);
+        $deferred->reject(new WapiException($error));
       } else {
         $deferred->resolve($output);
       }

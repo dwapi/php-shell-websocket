@@ -182,16 +182,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwapi/php-wapi.git",
-                "reference": "247da1506e922a37012658f9cd59ffcfb66ac484"
+                "reference": "56bbe458b23763798154cbf98b9eab847abf827a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwapi/php-wapi/zipball/247da1506e922a37012658f9cd59ffcfb66ac484",
-                "reference": "247da1506e922a37012658f9cd59ffcfb66ac484",
+                "url": "https://api.github.com/repos/dwapi/php-wapi/zipball/56bbe458b23763798154cbf98b9eab847abf827a",
+                "reference": "56bbe458b23763798154cbf98b9eab847abf827a",
                 "shasum": ""
             },
             "require": {
-                "cboden/ratchet": "0.4.x-dev"
+                "cboden/ratchet": "0.4.x-dev",
+                "nyariv/wapi-protocol": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -210,7 +211,40 @@
                 }
             ],
             "description": "A PHP daemon factory for handling websocket communication based on ReactPHP and Ratchet.",
-            "time": "2017-08-05 11:44:50"
+            "time": "2017-08-06 20:03:22"
+        },
+        {
+            "name": "nyariv/wapi-protocol",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwapi/php-wapi-protocol.git",
+                "reference": "3176fa5e6faf97cb93ca48e09cfe437356b9f128"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwapi/php-wapi-protocol/zipball/3176fa5e6faf97cb93ca48e09cfe437356b9f128",
+                "reference": "3176fa5e6faf97cb93ca48e09cfe437356b9f128",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wapi\\Protocol\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nir Yariv",
+                    "email": "nir@dofinity.com"
+                }
+            ],
+            "description": "WAPI messaging protocol.",
+            "time": "2017-08-05 18:02:35"
         },
         {
             "name": "psr/http-message",
