@@ -3,6 +3,7 @@ namespace Wapi\Daemon\ShellWebsocket;
 
 use React\ChildProcess\Process;
 use React\Promise\Deferred;
+use Wapi\Daemon\ShellWebsocket\Exception\ShellException;
 use Wapi\Exception\AccessDenied;
 use Wapi\Exception\ClockMismatch;
 use Wapi\Exception\WapiException;
@@ -38,7 +39,7 @@ class MessageHandler extends MessageHandlerBase {
   }
   
   public function exec($command) {
-    echo $command;
+    echo "$command\n";
     $output = '';
     $error = '';
     $deferred = new Deferred();
@@ -50,16 +51,21 @@ class MessageHandler extends MessageHandlerBase {
     $process->stdout->on('data', function ($chunk) use(&$output) {
       $output .= $chunk;
     });
+  
+  
+    $process->stdout->on('error', function (\Exception $e) use (&$error) {
+      $error .= $e->getMessage();
+    });
     
     $process->stderr->on('data', function ($chunk) use(&$error)  {
       $error .= $chunk;
     });
   
-    $process->on('exit', function($exitCode) use ($output, $error, $deferred) {
+    $process->on('exit', function($exitCode) use (&$output, &$error, $deferred) {
       if($exitCode) {
-        $deferred->reject(new WapiException($error));
+        $deferred->reject(ShellException::exitCode($exitCode, $error ?: $output));
       } else {
-        $deferred->resolve($output);
+        $deferred->resolve(trim($output));
       }
     });
     
