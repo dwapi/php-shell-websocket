@@ -27,7 +27,7 @@ class MessageHandler extends MessageHandlerBase {
   }
   
   public function access() {
-    $secret = ServiceManager::service('app')->server_secret;
+    $secret = ServiceManager::app()->server_secret;
   
     if(!$this->message->verifyTimestamp()) {
       throw new ClockMismatch();
@@ -44,7 +44,7 @@ class MessageHandler extends MessageHandlerBase {
     $error = '';
     $deferred = new Deferred();
     
-    $loop = ServiceManager::service('loop');
+    $loop = ServiceManager::loop();
     $process = new Process($command);
     $process->start($loop);
   
