@@ -3,6 +3,7 @@ namespace Wapi\Daemon\ShellWebsocket;
 
 use React\ChildProcess\Process;
 use React\Promise\Deferred;
+use React\Promise\FulfilledPromise;
 use Wapi\Daemon\ShellWebsocket\Exception\ShellException;
 use Wapi\Exception\AccessDenied;
 use Wapi\Exception\ClockMismatch;
@@ -15,6 +16,7 @@ class MessageHandler extends MessageHandlerBase {
   
   static function getMethods() {
     return [
+      'ping' => 'ping',
       'die' => 'stop',
       'exec' => 'exec',
     ];
@@ -37,6 +39,10 @@ class MessageHandler extends MessageHandlerBase {
     if(!$this->message->verifyCheck($secret)) {
       throw new AccessDenied();
     }
+  }
+  
+  public function ping() {
+    return new FulfilledPromise(microtime(TRUE));
   }
   
   public function stop() {
