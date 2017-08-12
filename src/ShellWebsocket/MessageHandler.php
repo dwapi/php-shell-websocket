@@ -15,6 +15,7 @@ class MessageHandler extends MessageHandlerBase {
   
   static function getMethods() {
     return [
+      'die' => 'stop',
       'exec' => 'exec',
     ];
   }
@@ -36,6 +37,10 @@ class MessageHandler extends MessageHandlerBase {
     if(!$this->message->verifyCheck($secret)) {
       throw new AccessDenied();
     }
+  }
+  
+  public function stop() {
+    exit;
   }
   
   public function exec($command) {
