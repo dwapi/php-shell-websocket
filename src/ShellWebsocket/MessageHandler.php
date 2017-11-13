@@ -42,11 +42,14 @@ class MessageHandler extends MessageHandlerBase {
   }
   
   public function ping() {
-    return new FulfilledPromise(microtime(TRUE));
+    return microtime(TRUE);
   }
   
   public function stop() {
-    exit;
+    ServiceManager::loop()->addTimer(0, function(){
+      ServiceManager::loop()->stop();
+    });
+    return TRUE;
   }
   
   public function exec($command) {
