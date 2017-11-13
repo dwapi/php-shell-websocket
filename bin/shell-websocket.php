@@ -9,6 +9,7 @@ if (getenv('COMPOSER_VENDOR_DIR') && is_file(__DIR__ . '/../' . getenv('COMPOSER
 }
 
 $params = \Wapi\Daemon::parseArgs($argv);
+$params['access_mask'] = '127.0.0.1';
 $params['host'] = '127.0.0.1';
 $params['port'] = 33556;
 
