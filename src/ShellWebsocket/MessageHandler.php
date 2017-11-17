@@ -14,16 +14,29 @@ use Wapi\ServiceManager;
 
 class MessageHandler extends MessageHandlerBase {
   
-  static function getMethods() {
-    return [
-      'ping' => 'ping',
-      'die' => 'stop',
-      'exec' => 'exec',
+  public function getMethods() {
+    $methods = [];
+  
+    $methods['ping'] = [
+      'callback' => [$this, 'ping'],
+      'schema' => [],
     ];
+  
+    $methods['die'] = [
+      'callback' => [$this, 'stop'],
+      'schema' => [],
+    ];
+    
+    $methods['exec'] = [
+      'callback' => [$this, 'exec'],
+      'schema' => [],
+    ];
+    
+    return $methods;
   }
   
   static function isApplicable(Message $message) {
-    if(!($message->client->getPath() == '/shell-access')) {
+    if(!($message->client->getRequestPath() == '/shell-access')) {
       return FALSE;
     }
     return TRUE;
